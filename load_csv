@@ -1,0 +1,11 @@
+import pandas as pd
+
+def load_csv(file_path, delimiter=',', header=True, encoding='utf-8'):
+    if header:
+        df = pd.read_csv(file_path, delimiter=delimiter, encoding=encoding)
+    else:
+        df = pd.read_csv(file_path, delimiter=delimiter, header=None, encoding=encoding)
+    return df
+
+# Exemplo de uso:
+# df = load_csv('caminho/para/arquivo.csv', encoding='latin1')
