@@ -1,0 +1,14 @@
+import pandas as pd
+
+def drop_missing_values(df, threshold=0.5):
+    # Calcula o limite de valores não ausentes necessário
+    col_thresh = int(threshold * len(df))
+    row_thresh = int(threshold * len(df.columns))
+
+    # Remove colunas com muitos valores ausentes
+    df_cleaned = df.dropna(axis=1, thresh=col_thresh)
+
+    # Remove linhas com muitos valores ausentes
+    df_cleaned = df_cleaned.dropna(axis=0, thresh=row_thresh)
+
+    return df_cleaned
