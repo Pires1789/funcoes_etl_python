@@ -2,6 +2,21 @@
 
 Este repositório contém uma coleção de funções Python projetadas para otimizar e agilizar processos de ETL (Extração, Transformação e Carga) e análise exploratória de dados. Essas funções são especialmente úteis para analistas de dados que desejam automatizar tarefas repetitivas e focar na análise e visualização de dados.
 
+## Índice
+
+- [Funções](#funções)
+  - [`load_csv(file_path, delimiter=',', header=True)`](#1-load_csvfile_path-delimiter-headertrue)
+  - [`clean_column_names(df)`](#2-clean_column_namesdf)
+  - [`drop_missing_values(df, threshold=0.5)`](#3-drop_missing_valuesdf-threshold05)
+  - [`transform_date_column(df, column_name, format='%Y-%m-%d')`](#4-transform_date_columndf-column_name-formaty-m-d)
+  - [`aggregate_data(df, group_by_columns, aggregation_dict)`](#5-aggregate_datadf-group_by_columns-aggregation_dict)
+  - [`filter_outliers(df, column_name, method='IQR')`](#6-filter_outliersdf-column_name-methodiqr)
+  - [`join_dataframes(df1, df2, on_columns, how='inner')`](#7-join_dataframesdf1-df2-on_columns-howinner)
+  - [`normalize_column(df, column_name)`](#8-normalize_columndf-column_name)
+  - [`extract_features(df, column_name, new_columns)`](#9-extract_featuresdf-column_name-new_columns)
+  - [`save_to_csv(df, file_path, index=False)`](#10-save_to_csvdf-file_path-indexfalse)
+- [Padrões de Formatação de Datas](#padrões-de-formatação-de-datas)
+
 ## **Funções**
 
 ### 1. `load_csv(file_path, delimiter=',', header=True)`
@@ -81,3 +96,33 @@ Este repositório contém uma coleção de funções Python projetadas para otim
      - `index` (bool): Indica se o índice do DataFrame deve ser incluído no CSV.
     - **Uso:** Cria um arquivo csv para exportar os dados neste formato.
    - **Uso:** Exporta os resultados de análises para um formato de arquivo amplamente utilizado.
+
+## **Padrão de data**
+
+Aqui podem ser encontrados os padrões de data mais comuns.
+
+### Padrões de Formatação de Datas
+
+| Símbolo | Descrição            | Exemplo       |
+|---------|----------------------|---------------|
+| `%Y`    | Ano com século       | 2023          |
+| `%y`    | Ano sem século       | 23            |
+| `%m`    | Mês (01-12)          | 07            |
+| `%B`    | Nome completo do mês | July          |
+| `%b`    | Abreviação do mês    | Jul           |
+| `%d`    | Dia do mês (01-31)   | 26            |
+| `%H`    | Hora (00-23)         | 14            |
+| `%I`    | Hora (01-12)         | 02            |
+| `%p`    | AM ou PM             | PM            |
+| `%M`    | Minuto (00-59)       | 30            |
+| `%S`    | Segundo (00-59)      | 45            |
+| `%f`    | Microsegundos        | 123456        |
+| `%z`    | Desvio UTC           | +0200         |
+| `%Z`    | Nome do fuso horário | UTC           |
+| `%j`    | Dia do ano (001-366) | 207           |
+| `%U`    | Semana do ano (00-53) com domingo como primeiro dia da semana | 30            |
+| `%W`    | Semana do ano (00-53) com segunda-feira como primeiro dia da semana | 30            |
+| `%c`    | Data e hora          | Tue Jul 26 14:30:45 2023 |
+| `%x`    | Data                 | 07/26/23      |
+| `%X`    | Hora                 | 14:30:45      |
+
